@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block title %}{{book.title}}{% endblock %}
+
+{% block content %}
+<div>
+    <div class="detail">
+        <h2 style="margin-top: 60px;" >{{book.title}}</h2>
+        <!-- <p>author : {{book.author}}</p> -->
+        <!-- <img class="profile-pic" src="{{ post.user.image_url }}" alt="" > -->
+    </div>
+
+    <div class="vertical_scrol">
+    <table class="table">
+        <tbody>
+            <tr>
+              <th><img height="400px" class="rounded" src="{{ book.front_cover_url|default_if_none:'#' }}" alt="front_cover"></th>
+              <td><img height="400px" class="rounded" src="{{ book.back_cover_url|default_if_none:'#' }}" alt="back_cover"></td>
+              <td><img height="400px" class="rounded" src="{{ book.spine.url|default_if_none:'#' }}" alt="spine"></td>
+              <td><img height="400px" class="rounded" src="{{ book.properties_url|default_if_none:'#' }}" alt="properties"></td>
+            </tr>
+            <tr>
+              <td class="text-center">front cover</td>
+              <td class="text-center">back cover</td>
+              <td class="text-center">spine</td>
+              <td class="text-center">properties</td>
+            </tr>
+          </tbody>
+        </table>
+    </div>
+
+          <table class="table">
+        <tbody>
+          <tr>
+            <th scope="row">author</th>
+            <td>{{book.author}}</td>
+          </tr>
+          <tr>
+            <th scope="row">pages</th>
+            <td>{{book.pages}}</td>
+          </tr>
+          <tr>
+            <th scope="row">price</th>
+            <td >{{book.price}} Rial </td>
+          </tr>
+          <tr>
+            <th scope="row">dimention</th>
+            <td >{{book.length}}mm * {{book.width}}mm * {{book.height}}mm</td>
+          </tr>
+        </tbody>
+      </table>
+
+
+    <div style="display: flex;">
+        <a href='{% url "book-update" book.pk %}'>
+            <button style="margin: 10px;" type="button" class="btn btn-primary">update</button>
+        </a>
+        
+        <a href='{% url "book-delete" book.pk %}'>
+            <button style="margin: 10px;" type="button" class="btn btn-danger">delete</button>
+        </a>
+    </div>
+</div>
+{% endblock %}
