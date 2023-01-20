@@ -1,0 +1,54 @@
+.vertical_scrol {
+    margin: 4px, 4px;
+    padding: 4px;
+    /* background-color: green; */
+    width: 95%;
+    /* height: 110px; */
+    overflow-x: auto;
+    overflow-y: hidden;
+    text-align: justify;
+}
+
+body {
+    position: absolute;
+    /* font-family: 'IBM Plex Sans', sans-serif; */
+    font-family: "Vazirmatn", sans-serif;
+    position: absolute;
+}
+
+.detail {
+    margin: 10px 10px 10px 10px;
+}
+
+.flex-container {
+    margin: 10px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.more {
+    text-decoration: none;
+}
+
+.margin-100 {
+    margin: 100px;
+}
+
+.profile-pic {
+    border-radius: 50px;
+    width: 50px;
+    height: 50px;
+}
+
+.user-name {
+    margin-right: 10px;
+    margin-left: 10px;
+}
+.firstname1{
+    background-color:rgb(27, 174, 187);
+    font-size:25px;
+    position:center;
+}
+.last_name{
+    background-color:rgb(73, 38, 33);
+}

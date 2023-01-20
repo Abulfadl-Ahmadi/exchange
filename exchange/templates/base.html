@@ -1,5 +1,5 @@
 <!-- https://mdbootstrap.com/docs/standard/extended/login/ -->
-
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -21,60 +21,12 @@
       rel="stylesheet" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100;200;300;400;500;600;700;800;900&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100;200;300;400;500;600;700;800;900&display=swap"
       rel="stylesheet" />
-    <style>
-
-      .vertical_scrol {
-                margin:4px, 4px;
-                padding:4px;
-                /* background-color: green; */
-                width: 95%;
-                /* height: 110px; */
-                overflow-x: auto;
-                overflow-y: hidden;
-                text-align:justify;
-        }
-
-      body {
-        position: relative;
-        /* font-family: 'IBM Plex Sans', sans-serif; */
-        font-family: "Vazirmatn", sans-serif;
-        margin: 0 0 0 0;
-        margin-top: 50px;
-        padding: 0 0 0 0;
-      }
-
-      .detail {
-        margin: 10px 10px 10px 10px;
-      }
-
-      .flex-container {
-        margin: 10px;
-        display: flex;
-        flex-wrap: wrap;
-      }
-
-      .more {
-        text-decoration: none;
-      }
-
-      .margin-100 {
-        margin: 100px;
-      }
-
-      .profile-pic {
-        border-radius: 50px;
-        width: 50px;
-        height: 50px;
-      }
-
-      .user-name {
-        margin-right: 10px;
-        margin-left: 10px;
-      }
-    </style>
+     
+    
+      
+    <link rel="stylesheet" type="text/css" href="{% static 'backend/css/style.css' %}">
   </head>
   <body>
     <div id="menu">
@@ -125,7 +77,27 @@
               </li>
             </ul>
 
-            
+            {% if user.is_authenticated %}
+            <a href="{% url 'user-detail' pk=user.pk %}"><img class="profile-pic" src="{{ user.image_url }}" alt="" /></a>
+            <div class="user-name">{{user.username}}</div>
+            <a href="{% url 'logout' %}">
+              <button type="button" class="btn btn-primary me-3">Logout</button>
+            </a>
+
+            {% else %}
+            <div class="d-flex align-items-center">
+              <a href="{% url 'login' %}">
+                <button type="button" class="btn btn-outline-primary px-3 me-2">
+                  Login
+                </button>
+              </a>
+              <a href="{% url 'register' %}">
+                <button type="button" class="btn btn-primary me-3">
+                  Sign up
+                </button>
+              </a>
+            </div>
+            {% endif %}
 
             <form class="d-flex" role="search">
               <input
