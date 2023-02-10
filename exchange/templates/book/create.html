@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load crispy_forms_filters %}
+<!-- { % load crispy _ forms _ filters %} -->
 
 {% block title %}Create New Book{% endblock %}
 
@@ -8,7 +8,7 @@
     <h1>Create Book Page</h1>
     <form method="post" enctype="multipart/form-data">
       {% csrf_token %}
-      {{ form|crispy }}
+      <!-- { { form | crispy } } -->
       <button class="btn btn-primary" type="submit">Submit New Book</button>
     </form>
 
